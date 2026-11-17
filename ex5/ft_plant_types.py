@@ -30,7 +30,7 @@ class Plant:
         else:
              print(self.name ,"Error, height can't be negative")
              print("Height update rejected")
-           
+
     def set_age(self, n_age):
         if n_age >= 0:
             self._days_old = n_age
