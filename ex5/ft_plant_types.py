@@ -1,8 +1,8 @@
 #!/bin/python
 class Plant:
-    def __init__(self, name, height=0, age=0) -> None:
+    def __init__(self, name: str, height: float = 0.0, age: int = 0) -> None:
         self.name = name
-        self._height = 0
+        self._height = 0.0
         self._days_old = 0
         if height >= 0:
             self._height = height
@@ -17,14 +17,14 @@ class Plant:
         return (f"{self.name}:    {round(self._height, 2)}cm\
 , {self._days_old} days old")
 
-    def grow(self, amount=0.8) -> None:
+    def grow(self, amount: float = 0.8) -> None:
         self._height += amount
 
     def age(self) -> None:
         self._days_old = self._days_old + 1
         self.grow()
 
-    def set_height(self, n_height) -> None:
+    def set_height(self, n_height: float) -> None:
         if n_height >= 0:
             self._height = n_height
             print(f"Height updated: {self._height}cm")
@@ -33,7 +33,7 @@ class Plant:
             print(self.name, "Error, height can't be negative")
             print("Height update rejected")
 
-    def set_age(self, n_age) -> None:
+    def set_age(self, n_age: int) -> None:
         if n_age >= 0:
             self._days_old = n_age
             print(f"Age updated: {self._days_old} days")
@@ -49,7 +49,14 @@ class Plant:
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height=0, age=0, h_season="", n_value=0) -> None:
+    def __init__(
+            self,
+            name: str,
+            height: float = 0.0,
+            age: int = 0,
+            h_season: str = "",
+            n_value: int = 0,
+    ) -> None:
         super().__init__(name, height, age)
         self.harvest_season = h_season
         self.nutritional_value = n_value
@@ -59,7 +66,7 @@ class Vegetable(Plant):
         res = res + f"\nnutritional value: {self.nutritional_value}"
         return res
 
-    def grow(self, amount=2.1) -> None:
+    def grow(self, amount: float = 2.1) -> None:
         self.nutritional_value += 1
         return super().grow(2.1)
 
@@ -68,7 +75,13 @@ class Vegetable(Plant):
 
 
 class Flower(Plant):
-    def __init__(self, name, height=0, age=0, color="") -> None:
+    def __init__(
+            self,
+            name: str,
+            height: float = 0.0,
+            age: int = 0,
+            color: str = "",
+    ) -> None:
         super().__init__(name, height, age)
         self.color = color
 
@@ -82,7 +95,13 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name, height=0, age=0, trunk_diameter=0) -> None:
+    def __init__(
+            self,
+            name: str,
+            height: float = 0.0,
+            age: int = 0,
+            trunk_diameter: int = 0,
+    ) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter = trunk_diameter
 
